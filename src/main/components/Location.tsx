@@ -1,8 +1,13 @@
+import Header from "./Header";
+
 const Location: React.FC = () => {
   return (
-    <div>
-      <h1>Location</h1>
-    </div>
+    <>
+      <Header />
+      <div>
+        <h1>Location</h1>
+      </div>
+    </>
   );
 };
 

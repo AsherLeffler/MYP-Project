@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font: "Montserrat", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #051825;
+  font-family: var(--main-font);
+  color: white;
+}
+
+header {
+  background-color: #102733;
+  position: relative;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+}
+
+header nav a {
+  color: lightblue;
+  text-decoration: none;
+  transition: 0.2s;
+  font-family: var(--main-font);
+}
+
+header nav a:hover {
+  scale: 1.05;
+}
+
+#imgOfMe{
+    height: 55px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}

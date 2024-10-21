@@ -1,9 +1,14 @@
+import Header from "./Header";
+
 const About: React.FC = () => {
   return (
-    <div>
-      <h1>About</h1>
-      <p>This is the about page.</p>
-    </div>
+    <>
+      <Header />
+      <div>
+        <h1>About</h1>
+        <p>This is the about page.</p>
+      </div>
+    </>
   );
 };
 
