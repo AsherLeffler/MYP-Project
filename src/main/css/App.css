@@ -35,23 +35,75 @@ header nav {
   display: flex;
   align-items: center;
   width: fit-content;
-  gap: 10px;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.divider-circle {
+  width: 10px;
+  aspect-ratio: 1;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
 }
 
 header nav a {
-  color: lightblue;
+  color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
   transition: 0.2s;
   font-family: var(--main-font);
+  font-size: 1.3rem;
+}
+
+header nav a.active {
+  color: lightblue !important;
 }
 
 header nav a:hover {
-  scale: 1.05;
+  color: lightblue;
 }
 
-#imgOfMe{
-    height: 55px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    object-fit: cover;
+.logo-wrapper {
+  height: 55px;
+  width: 55px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  transition: 0.45s ease-in-out;
+}
+
+.logo-wrapper:hover {
+  width: 200px;
+}
+
+#imgOfMe {
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: 0.45s ease-in-out;
+  position: relative;
+  z-index: 3;
+}
+
+#expandBtn {
+  height: 55px;
+  width: 200px;
+  transition: 0.45s ease-in-out;
+  background-color: hsla(204, 76%, 8%, 0.6);
+  position: absolute;
+  top: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 10px;
+  z-index: 2;
+}
+
+#expandBtn p {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  width: max-content;
 }

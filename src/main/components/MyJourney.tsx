@@ -8,16 +8,16 @@ interface HomeProps {
   headerStates: headerStates; // Replace 'any' with the appropriate type if known
 }
 
-const Location: React.FC<HomeProps> = ({ headerStates }) => {
-  const { activePage, setActivePage } = headerStates;
+const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
   return (
     <>
-      <Header headerStates={{ activePage, setActivePage }} />
+      <Header headerStates={headerStates} />
       <div>
-        <h1>Location</h1>
+        <h1>About</h1>
+        <p>This is the about page.</p>
       </div>
     </>
   );
 };
 
-export default Location;
+export default MyJourney;

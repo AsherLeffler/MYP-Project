@@ -1,3 +1,8 @@
+.homePage {
+  min-height: calc(100dvh - 80px);
+  position: relative;
+}
+
 .home-wrapper {
   display: flex;
   flex-direction: row;
@@ -5,14 +10,14 @@
   height: fit-content;
 }
 
-.title-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    height: fit-content;
-    flex: 1;
-    padding: 20px 0 0 20px;
+.title-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  height: fit-content;
+  flex: 1;
+  padding: 20px 0 0 20px;
 }
 
 .title-section h1,
@@ -29,12 +34,176 @@
   font-size: 1.3rem;
   width: max-content;
 }
-.information-section{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+
+.information-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 20px 40px 20px 0;
 }
-.information-section h2, .information-section p{
-    margin: 4px;
+
+.information-section h2,
+.information-section p {
+  margin: 4px;
+}
+
+.middle-divider {
+  width: 2px;
+  height: 94%;
+  background-color: rgba(255, 255, 255, 0.12);
+  position: absolute;
+  left: 45%;
+  top: 20px;
+}
+
+.codeChart {
+  width: 84%;
+  aspect-ratio: 1;
+  position: relative;
+  margin-top: 30px;
+}
+.codeChart .circle {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #051825;
+  font-weight: bolder;
+  font-size: 2.8rem;
+  position: relative;
+}
+.codeChart .circle:nth-child(1) {
+  background-color: #ff4500;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  translate: -50%;
+  overflow: hidden;
+}
+.codeChart .circle:nth-child(1)::before, .codeChart .circle:nth-child(1)::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  height: 30px;
+  background-color: #ff642b;
+}
+.codeChart .circle:nth-child(1)::before {
+    top: 0;
+}
+.codeChart .circle:nth-child(1)::after {
+    bottom: 0;
+}
+.codeChart .circle:nth-child(2) {
+  background-color: #fffb20;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  overflow: hidden;
+}
+.codeChart .circle:nth-child(2)::before, .codeChart .circle:nth-child(2)::after {
+  content: "";
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  width: 100%;
+  background-color: #fffd78;
+}
+.codeChart .circle:nth-child(2)::before {
+    top: 0;
+}
+.codeChart .circle:nth-child(2)::after {
+    bottom: 0;
+}
+.codeChart .circle:nth-child(3) {
+  background-color: #0084ff;
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  overflow: hidden;
+}
+.codeChart .circle:nth-child(3)::before, .codeChart .circle:nth-child(3)::after {
+  content: "";
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  width: 100%;
+  background-color: #00a2ff;
+}
+.codeChart .circle:nth-child(3)::before {
+    top: 0;
+}
+.codeChart .circle:nth-child(3)::after {
+    bottom: 0;
+}
+.codeChart .line {
+  width: 2px;
+  height: 200px;
+  border-radius: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  position: absolute;
+}
+.codeChart div.line:nth-of-type(4) {
+  bottom: 10px;
+  left: 50%;
+  translate: -50%;
+  rotate: 90deg;
+  height: 168px;
+}
+.codeChart div.line:nth-of-type(4)::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-top: 20px solid grey;
+    border-right: 10px solid transparent;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    translate: 50%;
+}
+
+.codeChart div.line:nth-of-type(5) {
+  bottom: 160px;
+  right: 160px;
+  rotate: -30deg;
+}
+
+.codeChart div.line:nth-of-type(5)::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-bottom: 20px solid grey;
+    border-right: 10px solid transparent;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    translate: 50%;
+}
+
+.codeChart div.line:nth-of-type(6) {
+  bottom: 160px;
+  left: 160px;
+  translate: -50%;
+  rotate: 30deg;
+}
+
+.codeChart div.line:nth-of-type(6)::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-bottom: 20px solid grey;
+    border-right: 10px solid transparent;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    translate: 50%;
 }
