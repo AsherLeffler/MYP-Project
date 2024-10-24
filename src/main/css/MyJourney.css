@@ -1,0 +1,63 @@
+#mainLine {
+  width: 4px;
+  background: linear-gradient(180deg, white 98%, transparent 0%);
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  z-index: 3;
+  border-radius: 2px;
+}
+
+#mainLine::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+  border-top: 40px solid white;
+  border-radius: 4px;
+  z-index: 4;
+}
+
+.journey-section .start {
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  z-index: 3;
+}
+
+.journey-section .line {
+  width: 2px;
+  height: 220px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 1px;
+}
+
+.journey-section .line::before {
+  content: var(--before-content, "");
+  position: absolute;
+  bottom: var(--bottomValue, 0);
+  left: var(--leftValue, 0);
+  width: 230px;
+  height: fit-content;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.16);
+  padding: 10px;
+  rotate: var(--rotation, "");
+}
+
+@keyframes lineAnimation {
+    0% {
+        height: 2069px;
+    }
+    100% {
+        height: 2250px;
+    }
+}

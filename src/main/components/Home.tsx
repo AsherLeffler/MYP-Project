@@ -18,8 +18,9 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
       <main className="homePage">
         <article className="home-wrapper">
           <div className="title-section">
-            <h1>Hey! I'm Asher Leffler</h1>
+            <h1>Hey! I'm Asher Leffler!</h1>
             <p>Student at Millbrook Magnet High School</p>
+            <h2 id="chartTitle">How Does Everything Relate?</h2>
             <div className="codeChart">
               <div className="circle">HTML</div>
               <div className="circle">JS</div>
@@ -42,7 +43,7 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
               </p>
             </div>
             <div className="why">
-              <h2>Why I Wanted To Learn</h2>
+              <h2>Why I Wanted to Learn How to Code</h2>
               <p>
                 I wanted to learn programming because I wanted to make things
                 that I could use. I've always been interested in creating things
@@ -52,7 +53,7 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
               </p>
             </div>
             <div className="overview">
-              <h2>Overview of my Journey</h2>
+              <h2>Overview of My Journey</h2>
               <p>
                 I started learning programming when I was in 8th grade. I
                 learned simple HTML and CSS but I really didn't learn much.

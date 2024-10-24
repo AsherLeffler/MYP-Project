@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100">
+    <!-- Background -->
+    <circle cx="50" cy="50" r="50" fill="#eaeaea" />
+
+    <!-- Left angled bracket -->
+    <path d="M30 30 L15 50 L30 70" stroke="#006eff" stroke-width="6" fill="none" stroke-linecap="round"
+        stroke-linejoin="round" />
+
+    <!-- Right angled bracket -->
+    <path d="M70 30 L85 50 L70 70" stroke="#006eff" stroke-width="6" fill="none" stroke-linecap="round"
+        stroke-linejoin="round" />
+
+    <!-- Forward slash -->
+    <line x1="60" y1="25" x2="40" y2="75" stroke="#003376" stroke-width="6" stroke-linecap="round" />
+</svg>

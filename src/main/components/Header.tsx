@@ -12,6 +12,25 @@ interface HomeProps {
 
 const Header: React.FC<HomeProps> = ({ headerStates }) => {
   const { activePage, setActivePage } = headerStates;
+
+  const findPage = (currentLocation: string) => {
+    switch (currentLocation) {
+      case "/":
+        return "Home";
+      case "/myJourney":
+        return "My Journey";
+      case "/location":
+        return "Location";
+      default:
+        return "Home";
+    }
+  };
+
+  window.onload = () => {
+    const currentLocation = window.location.pathname;
+    setActivePage(findPage(currentLocation));
+  };
+
   return (
     <header>
       <Link
@@ -56,7 +75,5 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
     </header>
   );
 };
-
-
 
 export default Header;

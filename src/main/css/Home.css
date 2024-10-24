@@ -23,16 +23,16 @@
 .title-section h1,
 .title-section p {
   margin: 0;
+  text-align: center;
+  width: 86%;
 }
 
 .title-section h1 {
   font-size: 2.6rem;
-  width: max-content;
 }
 
 .title-section p {
   font-size: 1.3rem;
-  width: max-content;
 }
 
 .information-section {
@@ -61,7 +61,6 @@
   width: 84%;
   aspect-ratio: 1;
   position: relative;
-  margin-top: 30px;
 }
 .codeChart .circle {
   border-radius: 50%;
@@ -83,7 +82,8 @@
   translate: -50%;
   overflow: hidden;
 }
-.codeChart .circle:nth-child(1)::before, .codeChart .circle:nth-child(1)::after {
+.codeChart .circle:nth-child(1)::before,
+.codeChart .circle:nth-child(1)::after {
   content: "";
   width: 100%;
   position: absolute;
@@ -93,32 +93,37 @@
   background-color: #ff642b;
 }
 .codeChart .circle:nth-child(1)::before {
-    top: 0;
+  top: 0;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 .codeChart .circle:nth-child(1)::after {
-    bottom: 0;
+  bottom: 0;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .codeChart .circle:nth-child(2) {
-  background-color: #fffb20;
+  background-color: #ffe227;
   position: absolute;
   bottom: 20px;
   right: 10px;
   overflow: hidden;
 }
-.codeChart .circle:nth-child(2)::before, .codeChart .circle:nth-child(2)::after {
+.codeChart .circle:nth-child(2)::before,
+.codeChart .circle:nth-child(2)::after {
   content: "";
   height: 30px;
   position: absolute;
   left: 50%;
   translate: -50%;
   width: 100%;
-  background-color: #fffd78;
+  background-color: rgb(255, 252, 88);
 }
 .codeChart .circle:nth-child(2)::before {
-    top: 0;
+  top: 0;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 .codeChart .circle:nth-child(2)::after {
-    bottom: 0;
+  bottom: 0;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .codeChart .circle:nth-child(3) {
   background-color: #0084ff;
@@ -127,7 +132,8 @@
   left: 10px;
   overflow: hidden;
 }
-.codeChart .circle:nth-child(3)::before, .codeChart .circle:nth-child(3)::after {
+.codeChart .circle:nth-child(3)::before,
+.codeChart .circle:nth-child(3)::after {
   content: "";
   height: 30px;
   position: absolute;
@@ -137,10 +143,12 @@
   background-color: #00a2ff;
 }
 .codeChart .circle:nth-child(3)::before {
-    top: 0;
+  top: 0;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
 .codeChart .circle:nth-child(3)::after {
-    bottom: 0;
+  bottom: 0;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .codeChart .line {
   width: 2px;
@@ -156,17 +164,17 @@
   rotate: 90deg;
   height: 168px;
 }
-.codeChart div.line:nth-of-type(4)::before{
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-top: 20px solid grey;
-    border-right: 10px solid transparent;
-    position: absolute;
-    right: 50%;
-    bottom: 0;
-    translate: 50%;
+.codeChart div.line:nth-of-type(4)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-top: 20px solid grey;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  translate: 50%;
 }
 
 .codeChart div.line:nth-of-type(5) {
@@ -175,17 +183,17 @@
   rotate: -30deg;
 }
 
-.codeChart div.line:nth-of-type(5)::before{
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-bottom: 20px solid grey;
-    border-right: 10px solid transparent;
-    position: absolute;
-    right: 50%;
-    top: 0;
-    translate: 50%;
+.codeChart div.line:nth-of-type(5)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-bottom: 20px solid grey;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: 50%;
+  top: 0;
+  translate: 50%;
 }
 
 .codeChart div.line:nth-of-type(6) {
@@ -195,15 +203,37 @@
   rotate: 30deg;
 }
 
-.codeChart div.line:nth-of-type(6)::before{
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-bottom: 20px solid grey;
-    border-right: 10px solid transparent;
-    position: absolute;
-    right: 50%;
-    top: 0;
-    translate: 50%;
+.codeChart div.line:nth-of-type(6)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-bottom: 20px solid grey;
+  border-right: 10px solid transparent;
+  position: absolute;
+  right: 50%;
+  top: 0;
+  translate: 50%;
+}
+
+#chartTitle {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  position: relative;
+  left: 60px;
+  width: fit-content;
+}
+
+#chartTitle::after {
+  width: 130%;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  translate: -50%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.12);
 }
