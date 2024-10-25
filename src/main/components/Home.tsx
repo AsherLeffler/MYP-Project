@@ -20,6 +20,7 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
           <div className="title-section">
             <h1>Hey! I'm Asher Leffler!</h1>
             <p>Student at Millbrook Magnet High School</p>
+            <br /><br /><br /><br />
             <h2 id="chartTitle">How Does Everything Relate?</h2>
             <div className="codeChart">
               <div className="circle">HTML</div>

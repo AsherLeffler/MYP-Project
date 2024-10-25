@@ -19,8 +19,8 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
         return "Home";
       case "/myJourney":
         return "My Journey";
-      case "/location":
-        return "Location";
+      case "/myFuture":
+        return "My Future";
       default:
         return "Home";
     }
@@ -65,11 +65,11 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
         </Link>
         <div className="divider-circle"></div>
         <Link
-          to={"/location"}
+          to={"/myFuture"}
           className={activePage === "Location" ? "active" : ""}
           onClick={() => setActivePage("Location")}
         >
-          Location
+          My Future
         </Link>
       </nav>
     </header>

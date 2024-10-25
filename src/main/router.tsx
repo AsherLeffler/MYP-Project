@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import MyJourney from "./components/MyJourney";
-import Location from "./components/Location";
+import MyFuture from "./components/MyFuture";
 
 const AppRouter: React.FC = () => {
   const [activePage, setActivePage] = useState("Home");
@@ -10,16 +10,20 @@ const AppRouter: React.FC = () => {
   return (
     <Routes>
       <Route
-        path="/"
-        element={<Home headerStates={{ activePage, setActivePage }} />}
+      path="/"
+      element={<Home headerStates={{ activePage, setActivePage }} />}
       />
       <Route
-        path="/myJourney"
-        element={<MyJourney headerStates={{ activePage, setActivePage }} />}
+      path="/myJourney"
+      element={<MyJourney headerStates={{ activePage, setActivePage }} />}
       />
       <Route
-        path="/location"
-        element={<Location headerStates={{ activePage, setActivePage }} />}
+      path="/myFuture"
+      element={<MyFuture headerStates={{ activePage, setActivePage }} />}
+      />
+      <Route
+      path="*"
+      element={<Navigate to="/" replace />}
       />
     </Routes>
   );
