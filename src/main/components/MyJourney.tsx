@@ -1,6 +1,7 @@
 import Header from "./Header";
 import "../css/MyJourney.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+
 interface headerStates {
   activePage: string;
   setActivePage: (page: string) => void;
@@ -10,15 +11,16 @@ interface HomeProps {
 }
 
 interface CSSPropertiesWithVars extends React.CSSProperties {
-  [key: `--${string}`]: string | number; // Allows any custom CSS variable
+  [key: `--${string}`]: string | number;
 }
 interface LineProps {
   rotation: boolean;
   number: number;
   text: string;
+  isVisible: boolean;
 }
 
-const LineComponent: React.FC<LineProps> = ({ rotation, number, text }) => {
+const LineComponent: React.FC<LineProps> = ({ rotation, number, text, isVisible }) => {
   const lineStyle: CSSPropertiesWithVars = {
     "--before-content": `"${text}"`,
     "--rotation": rotation ? "45deg" : "-45deg",
@@ -46,38 +48,39 @@ const LineComponent: React.FC<LineProps> = ({ rotation, number, text }) => {
   const findColor = () => {
     switch (number) {
       case 1:
-        return "rgb(150, 150, 255)";
+        return "rgb(180, 180, 255)";
       case 2:
-        return "rgb(255, 150, 150)";
+        return "rgb(255, 180, 180)";
       case 3:
-        return "rgb(150, 255, 150)";
+        return "rgb(180, 255, 180)";
       case 4:
-        return "rgb(255, 255, 150)";
+        return "rgb(255, 255, 180)";
       case 5:
-        return "rgb(255, 150, 255)";
+        return "rgb(255, 180, 255)";
       default:
-        return "rgb(150, 255, 255)";
+        return "rgb(180, 255, 255)";
     }
   };
 
   return (
-    <>
-      <div
-        className="line"
-        style={{
-          rotate: rotation ? "-45deg" : "45deg",
-          backgroundColor: findColor(),
-          top: findTop(),
-          ...lineStyle,
-          left: rotation ? "56.12%" : "43.8%",
-        }}
-      ></div>
-    </>
+    <div
+      className="line"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transition: "opacity 0.5s ease",
+        rotate: rotation ? "-45deg" : "45deg",
+        backgroundColor: findColor(),
+        top: findTop(),
+        ...lineStyle,
+        left: rotation ? "56.12%" : "43.8%",
+      }}
+    ></div>
   );
 };
 
 const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
   const [lineHeight, setLineHeight] = useState(0);
+  const [visibleLines, setVisibleLines] = useState<number[]>([]);
 
   const addHeightToLine = () => {
     const mainLine = document.getElementById("mainLine");
@@ -86,23 +89,47 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
     }
   };
 
+  const checkLineVisibility = useCallback((scrollY: number) => {
+    const thresholds = [20, 300, 640, 960, 1320, 1620];
+    const newVisibleLines = thresholds.reduce((visible, threshold, index) => {
+      if (scrollY >= threshold && !visibleLines.includes(index + 1)) visible.push(index + 1);
+      return visible;
+    }, [...visibleLines]);
+    setVisibleLines(newVisibleLines);
+  }, [visibleLines]);
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    let prevScrollY: number = window.scrollY;
+
     const handleScroll = () => {
-      if (window.scrollY < 1778 && window.scrollY > lineHeight) {
-        setLineHeight(window.scrollY);
-      } else {
-        addHeightToLine();
+      const scrollY = window.scrollY;
+      if (scrollY > prevScrollY) {
+        if (scrollY < 1778 && scrollY > lineHeight) {
+          setLineHeight(scrollY);
+        } else if (scrollY >= 1778) {
+          addHeightToLine();
+        }
+        checkLineVisibility(scrollY);
       }
+      prevScrollY = scrollY;
     };
 
-    window.addEventListener("scroll", () => {
-      handleScroll();
-    });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lineHeight, checkLineVisibility]);
 
-    return window.removeEventListener("scroll", () => {
-      handleScroll();
-    });
-  }, [lineHeight]);
+  const lineText = [
+    "I first started in a computer science class in the eighth grade and learned a small amount of HTML and CSS.",
+    "I then took a refresher course in HTML and CSS and started working on practice websites.",
+    "I watched a video on JavaScript and started to build projects with it to help create a foundation.",
+    "I also started to work on my design skills and practice creating appealing designs.",
+    "After that, I started to study the behind the scenes of a website and started to work on that.",
+    "Finally, I focused on understanding the software used in programming so that I could make my own."
+  ];
 
   return (
     <>
@@ -115,36 +142,15 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
         <div className="journey-section">
           <div className="start"></div>
           <div id="mainLine" style={{ height: lineHeight + 300 }}></div>
-          <LineComponent
-            rotation={true}
-            number={1}
-            text="I first started in a computer science class in the eighth grade and learned a small amount of HTML and CSS."
-          />
-          <LineComponent
-            rotation={false}
-            number={2}
-            text="I then took a refresher course in HTML and CSS and started working on practice websites."
-          />
-          <LineComponent
-            rotation={true}
-            number={3}
-            text="I watched a video on JavaScript and started to build projects with it to help create a foundation."
-          />
-          <LineComponent
-            rotation={false}
-            number={4}
-            text="I also started to work on my design skills and practice creating appealing designs."
-          />
-          <LineComponent
-            rotation={true}
-            number={5}
-            text="After that, I started to study the behind the scenes of a website and started to work on that."
-          />
-          <LineComponent
-            rotation={false}
-            number={6}
-            text="Finally, I focused on understanding the software used in programming so that I could make my own."
-          />
+          {[...Array(6).keys()].map(i => (
+            <LineComponent
+              key={i}
+              rotation={i % 2 === 0}
+              number={i + 1}
+              text={lineText[i]}
+              isVisible={visibleLines.includes(i + 1)}
+            />
+          ))}
         </div>
       </div>
     </>
