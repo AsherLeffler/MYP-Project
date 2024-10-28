@@ -50,11 +50,12 @@
 
 .middle-divider {
   width: 2px;
-  height: 94%;
-  background-color: rgba(255, 255, 255, 0.12);
+  height: calc(94% + 80px);
+  background-color: #243440;
   position: absolute;
   left: 45%;
   top: 20px;
+  border-radius: 1px;
 }
 
 .codeChart {
@@ -62,6 +63,7 @@
   aspect-ratio: 1;
   position: relative;
 }
+
 .codeChart .circle {
   border-radius: 50%;
   aspect-ratio: 1;
@@ -74,6 +76,7 @@
   font-size: 2.8rem;
   position: relative;
 }
+
 .codeChart .circle:nth-child(1) {
   background-color: #ff4500;
   position: absolute;
@@ -82,24 +85,37 @@
   translate: -50%;
   overflow: hidden;
 }
+
 .codeChart .circle:nth-child(1)::before,
-.codeChart .circle:nth-child(1)::after {
+.codeChart .circle:nth-child(1)::after,
+.codeChart .circle:nth-child(2)::before,
+.codeChart .circle:nth-child(2)::after,
+.codeChart .circle:nth-child(3)::before,
+.codeChart .circle:nth-child(3)::after {
   content: "";
   width: 100%;
   position: absolute;
   left: 50%;
   translate: -50%;
   height: 30px;
-  background-color: #ff642b;
+  background-color: rgba(255, 255, 255, 0.14);
 }
+
+.codeChart .circle:nth-child(2)::before,
+.codeChart .circle:nth-child(2)::after{
+  background-color: rgba(255, 255, 255, 0.26);
+}
+
 .codeChart .circle:nth-child(1)::before {
   top: 0;
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
+
 .codeChart .circle:nth-child(1)::after {
   bottom: 0;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
 .codeChart .circle:nth-child(2) {
   background-color: #ffe227;
   position: absolute;
@@ -107,24 +123,17 @@
   right: 10px;
   overflow: hidden;
 }
-.codeChart .circle:nth-child(2)::before,
-.codeChart .circle:nth-child(2)::after {
-  content: "";
-  height: 30px;
-  position: absolute;
-  left: 50%;
-  translate: -50%;
-  width: 100%;
-  background-color: rgb(255, 252, 88);
-}
+
 .codeChart .circle:nth-child(2)::before {
   top: 0;
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
+
 .codeChart .circle:nth-child(2)::after {
   bottom: 0;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
 .codeChart .circle:nth-child(3) {
   background-color: #0084ff;
   position: absolute;
@@ -132,31 +141,25 @@
   left: 10px;
   overflow: hidden;
 }
-.codeChart .circle:nth-child(3)::before,
-.codeChart .circle:nth-child(3)::after {
-  content: "";
-  height: 30px;
-  position: absolute;
-  left: 50%;
-  translate: -50%;
-  width: 100%;
-  background-color: #00a2ff;
-}
+
 .codeChart .circle:nth-child(3)::before {
   top: 0;
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
+
 .codeChart .circle:nth-child(3)::after {
   bottom: 0;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
 .codeChart .line {
-  width: 2px;
+  width: 3px;
   height: 200px;
   border-radius: 1px;
   background-color: rgba(255, 255, 255, 0.12);
   position: absolute;
 }
+
 .codeChart div.line:nth-of-type(4) {
   bottom: 10px;
   left: 50%;
@@ -164,13 +167,14 @@
   rotate: 90deg;
   height: 168px;
 }
+
 .codeChart div.line:nth-of-type(4)::before {
   content: "";
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
+  border-left: 12px solid transparent;
   border-top: 20px solid grey;
-  border-right: 10px solid transparent;
+  border-right: 12px solid transparent;
   position: absolute;
   right: 50%;
   bottom: 0;
@@ -187,9 +191,9 @@
   content: "";
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
+  border-left: 12px solid transparent;
   border-bottom: 20px solid grey;
-  border-right: 10px solid transparent;
+  border-right: 12px solid transparent;
   position: absolute;
   right: 50%;
   top: 0;
@@ -207,9 +211,9 @@
   content: "";
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
+  border-left: 12px solid transparent;
   border-bottom: 20px solid grey;
-  border-right: 10px solid transparent;
+  border-right: 12px solid transparent;
   position: absolute;
   right: 50%;
   top: 0;
@@ -234,6 +238,17 @@
   bottom: -10px;
   left: 50%;
   translate: -50%;
+  height: 4px;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background-color: #2d4150;
+}
+
+.diagonal-divider {
+  position: relative;
+  top: 30px;
+  rotate: -20deg;
+  border: none;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: #3d5465;
+  border-radius: 1px;
 }

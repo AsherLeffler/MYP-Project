@@ -20,7 +20,12 @@ interface LineProps {
   isVisible: boolean;
 }
 
-const LineComponent: React.FC<LineProps> = ({ rotation, number, text, isVisible }) => {
+const LineComponent: React.FC<LineProps> = ({
+  rotation,
+  number,
+  text,
+  isVisible,
+}) => {
   const lineStyle: CSSPropertiesWithVars = {
     "--before-content": `"${text}"`,
     "--rotation": rotation ? "45deg" : "-45deg",
@@ -89,14 +94,21 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
     }
   };
 
-  const checkLineVisibility = useCallback((scrollY: number) => {
-    const thresholds = [20, 300, 640, 960, 1320, 1620];
-    const newVisibleLines = thresholds.reduce((visible, threshold, index) => {
-      if (scrollY >= threshold && !visibleLines.includes(index + 1)) visible.push(index + 1);
-      return visible;
-    }, [...visibleLines]);
-    setVisibleLines(newVisibleLines);
-  }, [visibleLines]);
+  const checkLineVisibility = useCallback(
+    (scrollY: number) => {
+      const thresholds = [20, 300, 640, 960, 1320, 1620];
+      const newVisibleLines = thresholds.reduce(
+        (visible, threshold, index) => {
+          if (scrollY >= threshold && !visibleLines.includes(index + 1))
+            visible.push(index + 1);
+          return visible;
+        },
+        [...visibleLines]
+      );
+      setVisibleLines(newVisibleLines);
+    },
+    [visibleLines]
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -128,13 +140,14 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
     "I watched a video on JavaScript and started to build projects with it to help create a foundation.",
     "I also started to work on my design skills and practice creating appealing designs.",
     "After that, I started to study the behind the scenes of a website and started to work on that.",
-    "Finally, I focused on understanding the software used in programming so that I could make my own."
+    "Finally, I focused on understanding the software used in programming so that I could make my own.",
   ];
 
   return (
     <>
       <Header headerStates={headerStates} />
       <div>
+        <h1 className="journey-header">My Journey</h1>
         <br />
         <br />
         <br />
@@ -142,7 +155,7 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
         <div className="journey-section">
           <div className="start"></div>
           <div id="mainLine" style={{ height: lineHeight + 300 }}></div>
-          {[...Array(6).keys()].map(i => (
+          {[...Array(6).keys()].map((i) => (
             <LineComponent
               key={i}
               rotation={i % 2 === 0}
@@ -151,6 +164,22 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
               isVisible={visibleLines.includes(i + 1)}
             />
           ))}
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div id="endJourney">
+          <h1>Summary</h1>
+          <p>
+            Overall, I've come far in the time that I've spent learning how to
+            program. From the very beginning, I knew that I wanted to learn how
+            to program, I just didn't know where to start. After doing this
+            project, I learned what topics are most important to learn
+            programming and what software to actually use. I want to continue my
+            journey and learn more about programming and software including
+            building my own.
+          </p>
         </div>
       </div>
     </>

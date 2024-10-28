@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import selfieImg from "/selfie.webp";
 
 interface HeaderStates {
@@ -43,7 +44,7 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
         <div className="logo-wrapper">
           <img src={selfieImg} alt="Picture of me" id="imgOfMe" />
           <div id="expandBtn">
-            <p>Asher Leffler</p>
+            <p>Asher Leffler</p> <ArrowLeft size={28} color="white" />
           </div>
         </div>
       </Link>
