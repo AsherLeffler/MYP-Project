@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 
 interface headerStates {
   activePage: string;
@@ -14,7 +15,7 @@ const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
   return (
     <>
       <Header headerStates={{ activePage, setActivePage }} />
-      <div>
+      <div className="mainBody">
         <h2>My Coding Future</h2>
         <p>
           In the future, I plan to enhance my coding skills by learning new
@@ -23,6 +24,7 @@ const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
           in technology and continuously improve my problem-solving abilities.
         </p>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import "../css/Home.css";
 
 interface headerStates {
@@ -70,7 +71,20 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
           </div>
         </article>
         <hr className="diagonal-divider" />
+        <div className="right-end-section">
+          <div className="learned-wrapper">
+            <h2>What I've Learned</h2>
+            <ul>
+              <li>HTML - I've learned how to structure a web page.</li>
+              <li>CSS - I've learned how to style a web page to look appealing.</li>
+              <li>JavaScript - I've learned how to move and manipulate elements.</li>
+              <li>Software - I've learned how to write and edit code and maintain it.</li>
+              <li>Production - I've learned how to publish my web page to the internet.</li>
+            </ul>
+          </div>
+        </div>
       </main>
+      <Footer />
     </>
   );
 };

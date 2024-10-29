@@ -1,5 +1,5 @@
 .homePage {
-  min-height: calc(100dvh - 80px);
+  min-height: calc(100dvh - 160px);
   position: relative;
 }
 
@@ -50,7 +50,7 @@
 
 .middle-divider {
   width: 2px;
-  height: calc(94% + 80px);
+  height: 836px;
   background-color: #243440;
   position: absolute;
   left: 45%;
@@ -102,7 +102,7 @@
 }
 
 .codeChart .circle:nth-child(2)::before,
-.codeChart .circle:nth-child(2)::after{
+.codeChart .circle:nth-child(2)::after {
   background-color: rgba(255, 255, 255, 0.26);
 }
 
@@ -251,4 +251,33 @@
   height: 2px;
   background-color: #3d5465;
   border-radius: 1px;
+}
+
+.right-end-section {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.learned-wrapper{
+  width: 55%;
+  height: fit-content;
+  margin-top: 20px;
+  padding-left: 40px;
+}
+
+.learned-wrapper h2{
+  margin: 0;
+  font-size: 1.8rem;
+  margin-left: 55px;
+}
+
+.learned-wrapper ul{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }

@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import "../css/MyJourney.css";
 import { useEffect, useState, useCallback } from "react";
 
@@ -146,7 +147,7 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
   return (
     <>
       <Header headerStates={headerStates} />
-      <div>
+      <div className="mainBody">
         <h1 className="journey-header">My Journey</h1>
         <br />
         <br />
@@ -182,6 +183,7 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
           </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

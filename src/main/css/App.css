@@ -29,6 +29,7 @@ header {
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 5px;
+  overflow: auto;
 }
 
 header nav {
@@ -127,4 +128,41 @@ header nav a:hover {
     transform: scale(1);
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
   }
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(17, 39, 51);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.quickLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100%;
+  width: 200px;
+}
+
+.quickLinks a {
+  color: rgb(218, 218, 255);
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.quickLinks a:hover {
+  text-decoration: underline;
+}
+
+.mainBody {
+  min-height: calc(100dvh - 160px);
+  overflow: auto;
 }
