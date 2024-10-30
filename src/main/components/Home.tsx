@@ -76,11 +76,64 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
             <h2>What I've Learned</h2>
             <ul>
               <li>HTML - I've learned how to structure a web page.</li>
-              <li>CSS - I've learned how to style a web page to look appealing.</li>
-              <li>JavaScript - I've learned how to move and manipulate elements.</li>
-              <li>Software - I've learned how to write and edit code and maintain it.</li>
-              <li>Production - I've learned how to publish my web page to the internet.</li>
+              <li>
+                CSS - I've learned how to style a web page to look appealing.
+              </li>
+              <li>
+                JavaScript - I've learned how to move and manipulate elements.
+              </li>
+              <li>
+                Software - I've learned how to write and edit code and maintain
+                it.
+              </li>
+              <li>
+                Production - I've learned how to publish my web page to the
+                internet.
+              </li>
             </ul>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+        <h1 id="projectsTitle">Projects I've Built</h1>
+        <div className="image-card-container">
+          <div className="image-card">
+            <img src="https://picsum.photos/200/110" alt="Image 1" />
+            <div className="card-content">
+              <h3>Digital Clock</h3>
+                <p>
+                When learning JavaScript, I learned how to use time in
+                applications so I made a digital clock to help practice it.
+                This project helped me understand how to work with the Date object,
+                manipulate DOM elements, and update the UI in real-time.
+                </p>
+            </div>
+          </div>
+          <div className="image-card">
+            <img src="https://picsum.photos/200/111" alt="Image 2" />
+            <div className="card-content">
+              <h3>Calculator</h3>
+                <p>
+                This project was created to practice basic arithmetic operations
+                using JavaScript. It helped me understand event handling, 
+                managing state, and performing calculations in a web application.
+                </p>
+            </div>
+          </div>
+          <div className="image-card">
+            <img src="https://picsum.photos/200/109" alt="Image 3" />
+            <div className="card-content">
+              <h3>Weather App</h3>
+                <p>
+                This project was created to fetch and display weather data from an API.
+                It helped me understand how to work with asynchronous operations, 
+                handle API requests, and dynamically update the UI based on the data received.
+                </p>
+            </div>
           </div>
         </div>
       </main>
