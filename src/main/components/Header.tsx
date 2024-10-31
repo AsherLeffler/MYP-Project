@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import selfieImg from "/selfie.webp";
+import { useEffect } from "react";
 
 interface HeaderStates {
   activePage: string;
@@ -14,23 +15,23 @@ interface HomeProps {
 const Header: React.FC<HomeProps> = ({ headerStates }) => {
   const { activePage, setActivePage } = headerStates;
 
-  const findPage = (currentLocation: string) => {
-    switch (currentLocation) {
-      case "/":
-        return "Home";
-      case "/myJourney":
-        return "My Journey";
-      case "/myFuture":
-        return "My Future";
-      default:
-        return "Home";
-    }
-  };
+  useEffect(() => {
+    const findPage = (currentLocation: string) => {
+      switch (currentLocation) {
+        case "/":
+          return "Home";
+        case "/myJourney":
+          return "My Journey";
+        case "/myFuture":
+          return "My Future";
+        default:
+          return "Home";
+      }
+    };  
 
-  window.onload = () => {
     const currentLocation = window.location.pathname;
     setActivePage(findPage(currentLocation));
-  };
+  }, [setActivePage]);
 
   return (
     <header>
