@@ -1,5 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import "../css/MyFuture.css";
+import { useEffect, useState } from "react";
 
 interface headerStates {
   activePage: string;
@@ -11,18 +13,20 @@ interface HomeProps {
 
 const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
   const { activePage, setActivePage } = headerStates;
+  const [animationActive, setAnimationActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationActive(true);
+    }, 400);
+  }, []);
 
   return (
     <>
       <Header headerStates={{ activePage, setActivePage }} />
-      <div className="mainBody">
-        <h2>My Coding Future</h2>
-        <p>
-          In the future, I plan to enhance my coding skills by learning new
-          programming languages, exploring advanced frameworks, and contributing
-          to open-source projects. I aim to stay updated with the latest trends
-          in technology and continuously improve my problem-solving abilities.
-        </p>
+      <div className="mainBody dark">
+        <div className={`slide-in one ${animationActive ? "slide" : ""}`}></div>
+        <div className={`slide-in two ${animationActive ? "slide" : ""}`}></div>
       </div>
       <Footer />
     </>

@@ -1,0 +1,25 @@
+.slide-in {
+  background-color: #051825;
+  height: fit-content;
+  min-height: calc(100dvh - 160px);
+  width: 50%;
+  position: absolute;
+  top: 0;
+  transition: 1.5s cubic-bezier(0.38, 0.6, 0.09, 1.01);
+}
+
+.slide-in.one {
+  left: -100%;
+}
+
+.slide-in.two {
+  right: -100%;
+}
+
+.slide.one{
+    left: 0 !important;
+}
+
+.slide.two{
+    right: 0 !important;
+}
