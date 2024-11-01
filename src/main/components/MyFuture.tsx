@@ -32,6 +32,21 @@ const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
       }, 700);
       setAnimationActive(true);
       setTimeout(() => {
+        const slides = document.querySelectorAll(
+          ".slide-in"
+        ) as NodeListOf<HTMLElement>;
+        slides.forEach((slide) => {
+          slide.classList.add("hide");
+          setTimeout(() => {
+            slide.style.display = "none";
+          }, 1500);
+        });
+
+        const body = document.querySelector(".mainBody.dark") as HTMLElement;
+        body.style.height = "fit-content";
+
+        const button = document.querySelector(".btn-content") as HTMLElement;
+        button.style.display = "none";
         setTextShowing(true);
       }, 1500);
     };
@@ -48,8 +63,8 @@ const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
       <Header headerStates={{ activePage, setActivePage }} />
       <div className="mainBody dark">
         <div className="btn-conteiner">
-          <a className="btn-content" href="#">
-            <span className="btn-title">NEXT</span>
+          <a className="btn-content">
+            <span className="btn-title">WHAT&apos;S NEXT</span>
             <span className="icon-arrow">
               <svg
                 width="66px"
@@ -85,22 +100,52 @@ const MyFuture: React.FC<HomeProps> = ({ headerStates }) => {
               </svg>
             </span>
           </a>
-        </div>{" "}
-        <h1 className={`${textShowing ? "show" : ""}`}>
-          What I Plan to Do in the Future
+        </div>
+        <h1 className={`future-title ${textShowing ? "show" : ""}`}>
+          My Future in Technology
         </h1>
-        <p className={`${textShowing ? "show" : ""}`}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          possimus error fugit nulla? Voluptatum nam recusandae hic saepe
-          inventore. Omnis incidunt nesciunt quasi deserunt quia architecto
-          veritatis nulla porro assumenda. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Recusandae soluta provident mollitia
-          vitae fuga dolores ipsa, hic quae quia eveniet odit ab alias ad libero
-          unde incidunt suscipit quasi et. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Provident assumenda, ad dolor
-          voluptatibus at tenetur dolorem eos sunt distinctio praesentium
-          eligendi fugiat quis in placeat ex eaque iste suscipit blanditiis?
-        </p>
+
+        <div className={`future-grid ${textShowing ? "show" : ""}`}>
+          <div className="future-card">
+            <h2>Education Goals</h2>
+            <ul>
+              <li>Complete Advanced Programming Courses</li>
+              <li>Pursue Computer Science Degree</li>
+              <li>Learn Applicative Algorithms</li>
+              <li>Master Modern Web Technologies</li>
+            </ul>
+          </div>
+
+          <div className="future-card">
+            <h2>Career Aspirations</h2>
+            <ul>
+              <li>Software Engineering Role</li>
+              <li>Full-Stack Development</li>
+              <li>Tech Project Leadership</li>
+              <li>Innovation in Web Technologies</li>
+            </ul>
+          </div>
+
+          <div className="future-card">
+            <h2>Technical Skills to Develop</h2>
+            <ul>
+              <li>Advanced React & TypeScript</li>
+              <li>Backend Technologies (Node.js, SQL)</li>
+              <li>Database Management</li>
+              <li>System Structure Design</li>
+            </ul>
+          </div>
+
+          <div className="future-card">
+            <h2>Personal Projects</h2>
+            <ul>
+              <li>Build a Full-Stack Web Application</li>
+              <li>Develop Mobile Apps</li>
+              <li>Create Open Source Contributions</li>
+              <li>Design Interactive Learning Tools</li>
+            </ul>
+          </div>
+        </div>
         <div className={`slide-in one ${animationActive ? "slide" : ""}`}></div>
         <div className={`slide-in two ${animationActive ? "slide" : ""}`}></div>
       </div>

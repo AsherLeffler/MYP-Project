@@ -68,8 +68,8 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
         <div className="divider-circle"></div>
         <Link
           to={"/myFuture"}
-          className={activePage === "Location" ? "active" : ""}
-          onClick={() => setActivePage("Location")}
+          className={activePage === "My Future" ? "active" : ""}
+          onClick={() => setActivePage("My Future")}
         >
           My Future
         </Link>
