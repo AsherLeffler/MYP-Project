@@ -1,5 +1,8 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import calcImg from "../../assets/calculatorImg.png";
+import clockImg from "../../assets/clockImg.png";
+import appImg from "../../assets/appImg.png";
 import "../css/Home.css";
 
 interface headerStates {
@@ -102,37 +105,39 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
         <h1 id="projectsTitle">Projects I've Built</h1>
         <div className="image-card-container">
           <div className="image-card">
-            <img src="https://picsum.photos/200/110" alt="Image 1" />
+            <img src={clockImg} alt="Image 1" />
             <div className="card-content">
               <h3>Digital Clock</h3>
-                <p>
-                When learning JavaScript, I learned how to use time in
-                applications so I made a digital clock to help practice it.
-                This project helped me understand how to work with the Date object,
-                manipulate DOM elements, and update the UI in real-time.
-                </p>
+              <p>
+                This project was created to practice working with the Dates in
+                JavaScript. It helped me understand how to display the current
+                time and update it. It also helped me understand
+                how to format the time to be more readable.
+              </p>
             </div>
           </div>
           <div className="image-card">
-            <img src="https://picsum.photos/200/111" alt="Image 2" />
+            <img src={calcImg} alt="Image 2" />
             <div className="card-content">
               <h3>Calculator</h3>
-                <p>
+              <p>
                 This project was created to practice basic arithmetic operations
-                using JavaScript. It helped me understand event handling, 
-                managing state, and performing calculations in a web application.
-                </p>
+                using JavaScript. It helped me understand event handling,
+                managing state, and performing calculations in a web
+                application.
+              </p>
             </div>
           </div>
           <div className="image-card">
-            <img src="https://picsum.photos/200/109" alt="Image 3" />
+            <img src={appImg} alt="Image 3" />
             <div className="card-content">
               <h3>Weather App</h3>
-                <p>
-                This project was created to fetch and display weather data from an API.
-                It helped me understand how to work with asynchronous operations, 
-                handle API requests, and dynamically update the UI based on the data received.
-                </p>
+              <p>
+                This project was created to fetch and display weather data from
+                an API. It helped me understand how to work with asynchronous
+                operations, handle API requests, and dynamically update the UI
+                based on the data received.
+              </p>
             </div>
           </div>
         </div>
