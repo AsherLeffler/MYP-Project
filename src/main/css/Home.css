@@ -260,7 +260,7 @@
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 80px;
 }
 
 .learned-wrapper {
@@ -324,7 +324,6 @@
 
 .image-card:hover {
   transform: translateY(-10px);
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 #projectsTitle {
