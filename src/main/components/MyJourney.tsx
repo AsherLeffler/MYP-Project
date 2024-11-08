@@ -88,6 +88,8 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
   const [lineHeight, setLineHeight] = useState(0);
   const [visibleLines, setVisibleLines] = useState<number[]>([]);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const addHeightToLine = () => {
     const mainLine = document.getElementById("mainLine");
     if (mainLine) {
@@ -113,6 +115,9 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -156,7 +161,7 @@ const MyJourney: React.FC<HomeProps> = ({ headerStates }) => {
         <div className="journey-section">
           <div className="start"></div>
           <div id="mainLine" style={{ height: lineHeight + 300 }}></div>
-          {[...Array(6).keys()].map((i) => (
+          {windowWidth >= 768 && [...Array(6).keys()].map((i) => (
             <LineComponent
               key={i}
               rotation={i % 2 === 0}
