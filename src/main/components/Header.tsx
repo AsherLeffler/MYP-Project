@@ -39,7 +39,7 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
     const menuIcon = document.getElementById("menuIcon") as HTMLElement;
     menuIcon.classList.toggle("open");
   };
-
+  
   return (
     <>
       <header>
@@ -47,7 +47,6 @@ const Header: React.FC<HomeProps> = ({ headerStates }) => {
           to={"/"}
           onClick={() => {
             setActivePage("Home");
-            window.location.reload();
           }}
         >
           <div className="logo-wrapper">

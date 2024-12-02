@@ -4,6 +4,7 @@ import calcImg from "../../assets/calculatorImg.png";
 import clockImg from "../../assets/clockImg.png";
 import appImg from "../../assets/appImg.png";
 import "../css/Home.css";
+import { useEffect, useState } from "react";
 
 interface headerStates {
   activePage: string;
@@ -15,6 +16,17 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ headerStates }) => {
   const { activePage, setActivePage } = headerStates;
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -28,15 +40,19 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
             <br />
             <br />
             <br />
-            <h2 id="chartTitle">How Does Everything Relate?</h2>
-            <div className="codeChart">
-              <div className="circle">HTML</div>
-              <div className="circle">JS</div>
-              <div className="circle">CSS</div>
-              <div className="line"></div>
-              <div className="line"></div>
-              <div className="line"></div>
-            </div>
+            {screenWidth > 1080 && (
+              <>
+                <h2 id="chartTitle">How Does Everything Relate?</h2>
+                <div className="codeChart">
+                  <div className="circle">HTML</div>
+                  <div className="circle">JS</div>
+                  <div className="circle">CSS</div>
+                  <div className="line"></div>
+                  <div className="line"></div>
+                  <div className="line"></div>
+                </div>
+              </>
+            )}
           </div>
           <div className="middle-divider"></div>
           <div className="information-section">
@@ -111,8 +127,8 @@ const Home: React.FC<HomeProps> = ({ headerStates }) => {
               <p>
                 This project was created to practice working with the Dates in
                 JavaScript. It helped me understand how to display the current
-                time and update it. It also helped me understand
-                how to format the time to be more readable.
+                time and update it. It also helped me understand how to format
+                the time to be more readable.
               </p>
             </div>
           </div>
