@@ -79,6 +79,20 @@
   rotate: var(--rotation, "");
 }
 
+.journey-section .line::after {
+  content: "";
+  position: absolute;
+  left: var(--leftValue, 0);
+  rotate: var(--rotation, "");
+  width: 260px;
+  aspect-ratio: 16 / 9;
+  background-image: url("../../assets/school.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: inherit;
+}
+
 #endJourney {
   width: 100%;
   height: fit-content;
