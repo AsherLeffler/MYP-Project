@@ -86,7 +86,6 @@
   rotate: var(--rotation, "");
   width: 260px;
   aspect-ratio: 16 / 9;
-  background-image: url("../../assets/school.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
